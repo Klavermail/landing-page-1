@@ -339,7 +339,7 @@ export const qualifier = {
 /* ── FOUNDER ──────────────────────────────────────────────────────────────── */
 export const founder = {
   eyebrow: "Who you’re working with",
-  name: "Abdirahman Mohamed",
+  name: "Ibrahim Dallab",
   role: "Founder, Klavermail",
   photo: "/people/founder.svg",
   paragraphs: [
@@ -347,7 +347,7 @@ export const founder = {
     "I started Klavermail because I kept auditing accounts that had been handed to generalist agencies. Beautiful reports, three flows switched on, and a template that hadn’t been touched in two years. The brands were paying for activity, not revenue.",
     "So we built the opposite. A small team, a hard cap on clients, and one deliverable: email becomes your most profitable channel within 90 days. You keep the account, the templates and the strategy — even if you leave.",
   ],
-  signature: "— Abdirahman",
+  signature: "— Ibrahim",
   credentials: [
     "Klaviyo-only since day one",
     "30+ ecom brands managed",

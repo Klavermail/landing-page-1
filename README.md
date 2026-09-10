@@ -24,7 +24,8 @@ Replace all of the following in `content/site.ts` before the site goes live:
 | The guarantee terms | `guarantee` |
 | `Currently taking 2 new clients this month` | `components/FinalCta.tsx` |
 
-I guessed the founder name from the account email — check it.
+The founder name is set to **Ibrahim Dallab**. The bio, credentials and the
+`REPLACE WITH PHOTO` portrait in `public/people/founder.svg` are still placeholders.
 
 ---
 
