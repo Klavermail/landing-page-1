@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="900" viewBox="0 0 600 900" role="img">
+  <rect width="600" height="900" fill="#0a0a0a"/>
+  <!-- header -->
+  <text x="300" y="52" text-anchor="middle" fill="#ffffff" font-family="Inter, Helvetica, Arial, sans-serif"
+        font-size="14" font-weight="600" letter-spacing="3.2">HYDRA SKIN</text>
+  <line x1="0" y1="80" x2="600" y2="80" stroke="#858585" stroke-opacity="0.2"/>
+  <!-- hero art -->
+  <rect x="0" y="80" width="600" height="256" fill="#181818"/>
+  <circle cx="271" cy="208" r="62" fill="#858585" opacity="0.22"/>
+  <rect x="196" y="286" width="208" height="10" rx="5" fill="#858585" opacity="0.28"/>
+  <!-- kicker -->
+  <text x="56" y="392" fill="#858585" font-family="Inter, Helvetica, Arial, sans-serif"
+        font-size="11" font-weight="600" letter-spacing="2.6">BACK IN STOCK</text>
+  <!-- headline -->
+  <text x="56" y="428" fill="#ffffff" font-family="Inter, Helvetica, Arial, sans-serif" font-size="30" font-weight="600" letter-spacing="-0.8">The Barrier</text>
+  <text x="56" y="462" fill="#ffffff" font-family="Inter, Helvetica, Arial, sans-serif" font-size="30" font-weight="600" letter-spacing="-0.8">Serum is back</text>
+  <!-- body -->
+  <g transform="translate(0,26)"><rect x="56" y="462" width="345" height="7" rx="3.5" fill="#858585" opacity="0.32"/><rect x="56" y="482" width="386" height="7" rx="3.5" fill="#858585" opacity="0.32"/><rect x="56" y="502" width="474" height="7" rx="3.5" fill="#858585" opacity="0.32"/></g>
+  <!-- cta -->
+  <rect x="56" y="552" width="153" height="44" rx="22" fill="#ffffff"/>
+  <text x="132.5" y="580" text-anchor="middle" fill="#000000"
+        font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="600">Get yours</text>
+  <!-- product grid -->
+  
+    <rect x="56" y="600" width="238" height="150" rx="8" fill="#181818"/>
+    <circle cx="175" cy="668" r="30" fill="#858585" opacity="0.2"/>
+    <rect x="56" y="764" width="130" height="8" rx="4" fill="#858585" opacity="0.4"/>
+    <rect x="56" y="782" width="70" height="8" rx="4" fill="#858585" opacity="0.25"/>
+    <rect x="306" y="600" width="238" height="150" rx="8" fill="#181818"/>
+    <circle cx="425" cy="668" r="30" fill="#858585" opacity="0.2"/>
+    <rect x="306" y="764" width="130" height="8" rx="4" fill="#858585" opacity="0.4"/>
+    <rect x="306" y="782" width="70" height="8" rx="4" fill="#858585" opacity="0.25"/>
+  <!-- footer -->
+  <line x1="56" y1="826" x2="544" y2="826" stroke="#858585" stroke-opacity="0.2"/>
+  <g fill="#858585" opacity="0.45">
+    <circle cx="272" cy="856" r="8"/><circle cx="300" cy="856" r="8"/><circle cx="328" cy="856" r="8"/>
+  </g>
+  <rect x="228" y="878" width="144" height="6" rx="3" fill="#858585" opacity="0.28"/>
+</svg>

@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="800" viewBox="0 0 1280 800" role="img">
+  <rect width="1280" height="800" fill="#f7f8f9"/>
+  <!-- app chrome -->
+  <rect width="1280" height="60" fill="#ffffff"/>
+  <line x1="0" y1="60" x2="1280" y2="60" stroke="#e6e8eb"/>
+  <circle cx="34" cy="30" r="11" fill="#0f172a"/>
+  <text x="56" y="35" fill="#0f172a" font-family="Inter, Helvetica, Arial, sans-serif" font-size="14" font-weight="600">Analytics</text>
+  <g fill="#9aa3ad" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13">
+    <text x="152" y="35">Overview</text><text x="232" y="35">Flows</text><text x="292" y="35">Campaigns</text><text x="386" y="35">Segments</text>
+  </g>
+  <rect x="1112" y="17" width="120" height="26" rx="13" fill="#f2f4f6"/>
+  <text x="1172" y="34" text-anchor="middle" fill="#6b7280" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11">Last 90 days ▾</text>
+
+  <!-- title row -->
+  <text x="64" y="126" fill="#0f172a" font-family="Inter, Helvetica, Arial, sans-serif" font-size="26" font-weight="600" letter-spacing="-0.6">Winback flow</text>
+  <rect x="64" y="146" width="118" height="26" rx="13" fill="#0f172a"/>
+  <text x="123" y="163" text-anchor="middle" fill="#C6FF00" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="600">+19% vs prev.</text>
+
+  <!-- kpis -->
+  
+    <rect x="64" y="196" width="373.3333333333333" height="118" rx="10" fill="#ffffff" stroke="#e6e8eb"/>
+    <text x="86" y="232" fill="#6b7280" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13">Reactivated</text>
+    <text x="86" y="278" fill="#0f172a" font-family="Inter, Helvetica, Arial, sans-serif" font-size="30" font-weight="600" letter-spacing="-0.8">19.4%</text>
+    <rect x="86" y="292" width="52" height="14" rx="7" fill="#e8f6d9"/>
+    <text x="112" y="303" text-anchor="middle" fill="#4b7a08" font-family="Inter, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="600">▲ 21%</text>
+    <rect x="453.3333333333333" y="196" width="373.3333333333333" height="118" rx="10" fill="#ffffff" stroke="#e6e8eb"/>
+    <text x="475.3333333333333" y="232" fill="#6b7280" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13">Recovered revenue</text>
+    <text x="475.3333333333333" y="278" fill="#0f172a" font-family="Inter, Helvetica, Arial, sans-serif" font-size="30" font-weight="600" letter-spacing="-0.8">$96,240</text>
+    <rect x="475.3333333333333" y="292" width="52" height="14" rx="7" fill="#e8f6d9"/>
+    <text x="501.3333333333333" y="303" text-anchor="middle" fill="#4b7a08" font-family="Inter, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="600">▲ 34%</text>
+    <rect x="842.6666666666666" y="196" width="373.3333333333333" height="118" rx="10" fill="#ffffff" stroke="#e6e8eb"/>
+    <text x="864.6666666666666" y="232" fill="#6b7280" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13">Cost per reactivation</text>
+    <text x="864.6666666666666" y="278" fill="#0f172a" font-family="Inter, Helvetica, Arial, sans-serif" font-size="30" font-weight="600" letter-spacing="-0.8">$0.42</text>
+    <rect x="864.6666666666666" y="292" width="52" height="14" rx="7" fill="#e8f6d9"/>
+    <text x="890.6666666666666" y="303" text-anchor="middle" fill="#4b7a08" font-family="Inter, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="600">▲ 32%</text>
+
+  <!-- chart card -->
+  <rect x="64" y="338" width="1152" height="330" rx="10" fill="#ffffff" stroke="#e6e8eb"/>
+  <text x="88" y="374" fill="#0f172a" font-family="Inter, Helvetica, Arial, sans-serif" font-size="14" font-weight="600">Attributed revenue over time</text>
+  <g>
+    <rect x="1026" y="360" width="10" height="10" rx="2" fill="#0f172a"/>
+    <text x="1042" y="369" fill="#6b7280" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11">Flows</text>
+    <rect x="1100" y="360" width="10" height="10" rx="2" fill="#b6e600"/>
+    <text x="1116" y="369" fill="#6b7280" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11">Campaigns</text>
+  </g>
+  <line x1="88" y1="620" x2="1192" y2="620" stroke="#eef0f2"/><line x1="88" y1="567.5" x2="1192" y2="567.5" stroke="#eef0f2"/><line x1="88" y1="515" x2="1192" y2="515" stroke="#eef0f2"/><line x1="88" y1="462.5" x2="1192" y2="462.5" stroke="#eef0f2"/><line x1="88" y1="410" x2="1192" y2="410" stroke="#eef0f2"/>
+  <defs>
+    <linearGradient id="fill9" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#b6e600" stop-opacity="0.42"/>
+      <stop offset="100%" stop-color="#b6e600" stop-opacity="0.02"/>
+    </linearGradient>
+  </defs>
+  <path d="M88.0 574.7 L138.2 563.5 L188.4 552.3 L238.5 544.7 L288.7 541.2 L338.9 519.8 L389.1 503.5 L439.3 491.8 L489.5 471.8 L539.6 447.4 L589.8 424.9 L640.0 416.3 L690.2 416.3 L740.4 416.3 L790.5 416.3 L840.7 416.3 L890.9 416.3 L941.1 416.3 L991.3 416.3 L1041.5 416.3 L1091.6 416.3 L1141.8 416.3 L1192.0 416.3 L1192.0 620 L88 620 Z" fill="url(#fill9)"/>
+  <path d="M88.0 574.7 L138.2 563.5 L188.4 552.3 L238.5 544.7 L288.7 541.2 L338.9 519.8 L389.1 503.5 L439.3 491.8 L489.5 471.8 L539.6 447.4 L589.8 424.9 L640.0 416.3 L690.2 416.3 L740.4 416.3 L790.5 416.3 L840.7 416.3 L890.9 416.3 L941.1 416.3 L991.3 416.3 L1041.5 416.3 L1091.6 416.3 L1141.8 416.3 L1192.0 416.3" fill="none" stroke="#7fa300" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="88.0" cy="574.7" r="3.6" fill="#ffffff" stroke="#7fa300" stroke-width="2"/><circle cx="389.1" cy="503.5" r="3.6" fill="#ffffff" stroke="#7fa300" stroke-width="2"/><circle cx="690.2" cy="416.3" r="3.6" fill="#ffffff" stroke="#7fa300" stroke-width="2"/><circle cx="991.3" cy="416.3" r="3.6" fill="#ffffff" stroke="#7fa300" stroke-width="2"/>
+  <text x="88" y="644" text-anchor="middle" fill="#9aa3ad" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11">Oct</text><text x="308.8" y="644" text-anchor="middle" fill="#9aa3ad" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11">Dec</text><text x="529.6" y="644" text-anchor="middle" fill="#9aa3ad" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11">Feb</text><text x="750.4000000000001" y="644" text-anchor="middle" fill="#9aa3ad" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11">Apr</text><text x="971.2" y="644" text-anchor="middle" fill="#9aa3ad" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11">Jun</text><text x="1192" y="644" text-anchor="middle" fill="#9aa3ad" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11">Aug</text>
+
+  <!-- table strip -->
+  <rect x="64" y="692" width="1152" height="76" rx="10" fill="#ffffff" stroke="#e6e8eb"/>
+  <text x="88" y="722" fill="#6b7280" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11">Welcome series</text>
+    <text x="88" y="748" fill="#0f172a" font-family="Inter, Helvetica, Arial, sans-serif" font-size="16" font-weight="600">$65.79K</text><text x="376" y="722" fill="#6b7280" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11">Abandoned cart</text>
+    <text x="376" y="748" fill="#0f172a" font-family="Inter, Helvetica, Arial, sans-serif" font-size="16" font-weight="600">$47.13K</text><text x="664" y="722" fill="#6b7280" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11">Browse abandon</text>
+    <text x="664" y="748" fill="#0f172a" font-family="Inter, Helvetica, Arial, sans-serif" font-size="16" font-weight="600">$66.13K</text><text x="952" y="722" fill="#6b7280" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11">Post-purchase</text>
+    <text x="952" y="748" fill="#0f172a" font-family="Inter, Helvetica, Arial, sans-serif" font-size="16" font-weight="600">$105.25K</text>
+</svg>

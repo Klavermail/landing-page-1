@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="880" viewBox="0 0 720 880" role="img">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#15180f"/><stop offset="100%" stop-color="#0a0b09"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#C6FF00" stop-opacity="0.30"/>
+      <stop offset="100%" stop-color="#C6FF00" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="720" height="880" fill="url(#bg)"/>
+  <circle cx="360" cy="330" r="260" fill="url(#glow)"/>
+  <!-- shoulders -->
+  <path d="M96 880 C120 660 232 588 360 588 C488 588 600 660 624 880 Z" fill="#20241a"/>
+  <!-- head -->
+  <circle cx="360" cy="404" r="132" fill="#2b3122"/>
+  <g stroke="#C6FF00" stroke-opacity="0.5" stroke-width="1.5" fill="none">
+    <circle cx="360" cy="404" r="160"/>
+    <circle cx="360" cy="404" r="196" stroke-opacity="0.2"/>
+  </g>
+  <text x="360" y="716" text-anchor="middle" fill="#ffffff" fill-opacity="0.35"
+        font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" letter-spacing="3.5">REPLACE WITH PHOTO</text>
+</svg>
