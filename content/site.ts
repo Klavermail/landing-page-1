@@ -19,7 +19,7 @@ export const site = {
   // Replace with your real scheduling link, e.g.
   //   "https://calendly.com/klavermail/audit-call"
   // Everything else on the page already points at it.
-  calendlyUrl: "https://calendly.com/your-handle/30min",
+  calendlyUrl: "https://calendly.com/ibrahimmohameddalab/free-audit-klavermail",
 
   socials: [
     { label: "X / Twitter", href: "https://x.com/klavermail" },
