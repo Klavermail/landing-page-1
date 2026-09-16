@@ -53,11 +53,11 @@ export const hero = {
     "Live in 30 days, no lift from your team",
     "You own every asset and the Klaviyo account",
   ],
-  socialProof: "Trusted by 30+ ecommerce brands",
+  socialProof: "Trusted by 20 ecommerce brands",
   stats: [
-    { value: "$18.4M", label: "email revenue generated" },
-    { value: "34%", label: "avg. revenue from email" },
-    { value: "42x", label: "avg. return on retainer" },
+    { value: "$845K", label: "in email revenue generated" },
+    { value: "36%", label: "avg. revenue from email" },
+    { value: "20", label: "ecommerce brands" },
   ],
 };
 
@@ -166,10 +166,12 @@ export const results = {
   headline: "Straight out of the Klaviyo dashboard",
   sub: "No cherry-picked vanity metrics, no “results may vary” asterisk buried at the bottom. These are attributed revenue screenshots from live accounts.",
   band: [
-    { value: "$18.4M", label: "Attributed email revenue generated" },
-    { value: "34%", label: "Average share of total revenue from email" },
-    { value: "3.1x", label: "Average lift in flow revenue in 90 days" },
-    { value: "30+", label: "Ecommerce brands managed" },
+    { value: "$845K", label: "Attributed email revenue generated" },
+    { value: "36%", label: "Average share of total revenue from email" },
+    { value: "20", label: "Ecommerce brands managed" },
+    // TODO: pick a 4th — see the options Claude suggested. Placeholder is a
+    // process commitment, not a results claim, so it is safe to ship as-is.
+    { value: "30 days", label: "From kickoff to live revenue flows" },
   ],
   items: [
     { src: "/results/result-01.svg", alt: "Klaviyo dashboard showing attributed revenue growth", metric: "+312%", caption: "flow revenue in 90 days", niche: "Skincare · $2.4M/yr" },
@@ -350,8 +352,8 @@ export const founder = {
   signature: "— Ibrahim",
   credentials: [
     "Klaviyo-only since day one",
-    "30+ ecom brands managed",
-    "$18.4M attributed revenue",
+    "20 ecom brands managed",
+    "$845K attributed revenue",
     "Capped at 8 active clients",
   ],
 };

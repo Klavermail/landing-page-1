@@ -52,10 +52,7 @@ export default function Reviews() {
     <Section id="reviews" className="border-t border-line">
       <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
         <SectionHeading eyebrow={reviews.eyebrow} headline={reviews.headline} />
-        <div data-reveal className="flex shrink-0 items-center gap-3">
-          <Stars />
-          <span className="text-[13px] text-mute">5.0 average from 30+ brands</span>
-        </div>
+
       </div>
 
       <div className="mt-14 grid gap-4 lg:grid-cols-3">
