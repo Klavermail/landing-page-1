@@ -61,18 +61,6 @@ export const hero = {
   ],
 };
 
-/* ── TRUST BAR (client wordmarks) ─────────────────────────────────────────── */
-export const clients = [
-  { name: "NORDVELL", logo: "/logos/logo-01.svg" },
-  { name: "Bloom & Bare", logo: "/logos/logo-02.svg" },
-  { name: "ATLAS SUPPLY", logo: "/logos/logo-03.svg" },
-  { name: "Hydra Skin", logo: "/logos/logo-04.svg" },
-  { name: "KIN + CO", logo: "/logos/logo-05.svg" },
-  { name: "Wilder Goods", logo: "/logos/logo-06.svg" },
-  { name: "SOLSTICE", logo: "/logos/logo-07.svg" },
-  { name: "Verdant Tea", logo: "/logos/logo-08.svg" },
-];
-
 /* ── PROBLEM ──────────────────────────────────────────────────────────────── */
 export const problem = {
   eyebrow: "The gap",

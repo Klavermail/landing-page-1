@@ -1,6 +1,6 @@
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
-import TrustBar from "@/components/TrustBar";
+import ResultsTicker from "@/components/ResultsTicker";
 import Problem from "@/components/Problem";
 import Deliverables from "@/components/Deliverables";
 import EmailCarousel from "@/components/EmailCarousel";
@@ -21,7 +21,7 @@ import ScrollReveal from "@/components/ScrollReveal";
  * Section order is deliberate — it follows the buyer's questions in the order
  * they actually ask them:
  *
- *   What is this? → Who trusts you? → Do you understand my problem? →
+ *   What is this? → What have you done? → Do you understand my problem? →
  *   What do I get? → Can you actually design? → Does it work? → Who says so? →
  *   How does it run? → Am I a fit? → Who are you? → What's my risk? →
  *   Objections → Book.
@@ -32,7 +32,7 @@ export default function Page() {
       <Nav />
       <main>
         <Hero />
-        <TrustBar />
+        <ResultsTicker />
         <Problem />
         <Deliverables />
         <EmailCarousel />

@@ -15,11 +15,9 @@ Replace all of the following in `content/site.ts` before the site goes live:
 
 | What | Where |
 |---|---|
-| `$18.4M`, `34%`, `42x` and the hero stats | `hero.stats` |
-| The 4 aggregate metrics | `results.band` |
+| The 4th aggregate metric (placeholder) | `results.band` |
 | All 10 result captions and niches | `results.items` |
 | **All 5 reviews** — names, companies, quotes, results | `reviews.items` |
-| Client wordmarks in the trust bar | `clients` + `public/logos/` |
 | Founder name, bio and credentials | `founder` |
 | The guarantee terms | `guarantee` |
 | `Currently taking 2 new clients this month` | `components/FinalCta.tsx` |
@@ -83,7 +81,6 @@ PNG, JPG, WebP and SVG all work — just change the file extension in the path t
 |---|---|---|---|
 | `public/emails/` | Email design screenshots, **portrait** | 10 | ~600 × 900+, tall crops look best |
 | `public/results/` | Klaviyo dashboard screenshots, **landscape** | 10 | ~1280 × 800 |
-| `public/logos/` | Client wordmarks, **white on transparent** | 8 | height ~30px, SVG ideal |
 | `public/people/` | `review-01..05` avatars + `founder` portrait | 6 | avatars square, founder ~720 × 880 |
 
 The current files are generated placeholders — safe to delete once yours are in.
@@ -111,7 +108,7 @@ public/             images
 The page answers a buyer's questions in the order they actually ask them:
 
 1. **Hero** — what is this, and what do I get
-2. **Trust bar** — who already trusts you
+2. **Results ticker** — what you've actually done (reads from `results.items`)
 3. **Problem** — do you understand my situation
 4. **What's included** — what am I actually buying
 5. **Email carousel** — can you actually design
