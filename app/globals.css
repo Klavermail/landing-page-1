@@ -392,10 +392,10 @@
    ═══════════════════════════════════════════════════════════════════════════ */
 @layer components {
   .email-card-lg {
-    --screen-h: 472px;
+    --screen-h: 500px;
   }
   .email-card-sm {
-    --screen-h: 300px;
+    --screen-h: 320px;
   }
 
   .email-scroll {
