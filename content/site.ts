@@ -162,16 +162,23 @@ export const results = {
     { value: "30 days", label: "From kickoff to live revenue flows" },
   ],
   items: [
-    { src: "/results/result-01.svg", alt: "Klaviyo dashboard showing attributed revenue growth", metric: "+312%", caption: "flow revenue in 90 days", niche: "Skincare · $2.4M/yr" },
-    { src: "/results/result-02.svg", alt: "Klaviyo flow performance dashboard", metric: "$486K", caption: "from email in 6 months", niche: "Apparel · $5M/yr" },
-    { src: "/results/result-03.svg", alt: "Klaviyo campaign revenue dashboard", metric: "41%", caption: "of total revenue from email", niche: "Supplements · $3.2M/yr" },
-    { src: "/results/result-04.svg", alt: "Klaviyo abandoned cart flow dashboard", metric: "+$74K/mo", caption: "added from 4 new flows", niche: "Home goods · $1.8M/yr" },
-    { src: "/results/result-05.svg", alt: "Klaviyo Black Friday campaign results", metric: "$212K", caption: "in one BFCM weekend", niche: "Accessories · $4M/yr" },
-    { src: "/results/result-06.svg", alt: "Klaviyo deliverability and open rate dashboard", metric: "28% → 54%", caption: "open rate after list cleanup", niche: "Beauty · $2.1M/yr" },
-    { src: "/results/result-07.svg", alt: "Klaviyo welcome flow revenue dashboard", metric: "$38 EPS", caption: "on the welcome series", niche: "Coffee · $900K/yr" },
-    { src: "/results/result-08.svg", alt: "Klaviyo year over year revenue comparison", metric: "2.7x", caption: "email revenue year on year", niche: "Pet · $6M/yr" },
-    { src: "/results/result-09.svg", alt: "Klaviyo segmentation performance dashboard", metric: "+$1.1M", caption: "in 12 months", niche: "Footwear · $8M/yr" },
-    { src: "/results/result-10.svg", alt: "Klaviyo winback flow dashboard", metric: "19%", caption: "of churned customers reactivated", niche: "Fitness · $2.6M/yr" },
+    // ⚠️ PLACEHOLDER RESULTS — invented, not real client outcomes.
+    // Scaled to stay coherent with the $845K lifetime figure above: no single
+    // result exceeds it, and the dollar figures here sum to roughly $375K
+    // across four brands, leaving the other sixteen at a believable average.
+    // Client revenue tags were removed because "41% of revenue" for a
+    // "$3.2M/yr brand" silently implies $1.3M from one client.
+    // Replace all ten with real Klaviyo screenshots and real numbers.
+    { src: "/results/result-01.svg", alt: "Klaviyo dashboard showing attributed revenue growth", metric: "+312%", caption: "flow revenue in 90 days", niche: "Skincare" },
+    { src: "/results/result-02.svg", alt: "Klaviyo flow performance dashboard", metric: "+$128K", caption: "from email in 6 months", niche: "Apparel" },
+    { src: "/results/result-03.svg", alt: "Klaviyo campaign revenue dashboard", metric: "41%", caption: "of total revenue from email", niche: "Supplements" },
+    { src: "/results/result-04.svg", alt: "Klaviyo abandoned cart flow dashboard", metric: "+$9.4K/mo", caption: "added from 4 new flows", niche: "Home goods" },
+    { src: "/results/result-05.svg", alt: "Klaviyo Black Friday campaign results", metric: "$38K", caption: "in one BFCM weekend", niche: "Accessories" },
+    { src: "/results/result-06.svg", alt: "Klaviyo deliverability and open rate dashboard", metric: "28% → 54%", caption: "open rate after list cleanup", niche: "Beauty" },
+    { src: "/results/result-07.svg", alt: "Klaviyo welcome flow revenue dashboard", metric: "$4.80", caption: "revenue per recipient, welcome flow", niche: "Coffee" },
+    { src: "/results/result-08.svg", alt: "Klaviyo year over year revenue comparison", metric: "2.7x", caption: "email revenue year on year", niche: "Pet" },
+    { src: "/results/result-09.svg", alt: "Klaviyo segmentation performance dashboard", metric: "+$96K", caption: "in 12 months", niche: "Footwear" },
+    { src: "/results/result-10.svg", alt: "Klaviyo winback flow dashboard", metric: "19%", caption: "of lapsed customers reactivated", niche: "Fitness" },
   ],
 };
 
@@ -197,7 +204,7 @@ export const reviews = {
       role: "Head of Ecommerce",
       company: "Nordvell",
       avatar: "/people/review-02.svg",
-      result: "+$486K in 6 months",
+      result: "+$128K in 6 months",
     },
     {
       quote:
@@ -215,7 +222,7 @@ export const reviews = {
       role: "Co-founder",
       company: "Kin + Co",
       avatar: "/people/review-04.svg",
-      result: "$212K in one weekend",
+      result: "$38K in one weekend",
     },
     {
       quote:
