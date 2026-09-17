@@ -1,0 +1,32 @@
+import EmailFrame from "./EmailFrame";
+import { emailDesigns } from "@/content/site";
+
+/**
+ * Single row of email designs sitting immediately under the hero, so the craft
+ * is the first thing a visitor sees rather than something 3,000px down.
+ */
+export default function EmailStrip() {
+  const items = emailDesigns.items;
+  const row = [...items, ...items];
+
+  return (
+    <section
+      aria-label="Recent email designs"
+      className="relative border-y border-line bg-panel/30 py-9"
+    >
+      <div className="marquee-mask marquee-pausable overflow-hidden">
+        <div className="marquee-track animate-marquee-logos gap-4">
+          {row.map((item, i) => (
+            <EmailFrame
+              key={`${item.src}-${i}`}
+              item={item}
+              index={i % items.length}
+              size="sm"
+              cloned={i >= items.length}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}

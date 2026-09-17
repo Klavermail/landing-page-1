@@ -287,10 +287,6 @@
     will-change: transform;
   }
 
-  /* Pause on hover so people can actually look at a design */
-  .marquee-pausable:hover .marquee-track {
-    animation-play-state: paused;
-  }
 
   /* ═══════════════════════════════════════════════════════════════════════════
      SCROLL REVEAL
@@ -390,24 +386,20 @@
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   EMAIL CAROUSEL CARDS
-   The designs are full-length email exports (up to 1:7.8), so a card clips to
-   a fixed height and hovering scrolls the whole thing through.
+   EMAIL DESIGN CARDS
+   Emails are full-length exports (up to 1:7.8), so a phone screen shows the
+   top and hovering thumbs the rest through — the way you'd actually view one.
    ═══════════════════════════════════════════════════════════════════════════ */
 @layer components {
-  .email-card {
-    --card-h: 380px;
-    height: var(--card-h);
+  .email-card-lg {
+    --screen-h: 472px;
   }
-
-  @media (min-width: 640px) {
-    .email-card {
-      --card-h: 440px;
-    }
+  .email-card-sm {
+    --screen-h: 300px;
   }
 
   .email-scroll {
-    /* linear, so the email starts moving the instant you hover — an eased
+    /* linear, so the design starts moving the instant you hover — an eased
        curve spends its first second barely moving and reads as broken */
     transition: transform 8s linear;
     will-change: transform;
@@ -417,7 +409,11 @@
      regardless of how tall it is. */
   .email-card:hover .email-scroll,
   .email-card:focus-within .email-scroll {
-    transform: translateY(calc(-100% + var(--card-h)));
+    transform: translateY(calc(-100% + var(--screen-h)));
+  }
+
+  .email-card-sm .email-scroll {
+    transition-duration: 6s;
   }
 }
 
@@ -425,5 +421,19 @@
   .email-card:hover .email-scroll,
   .email-card:focus-within .email-scroll {
     transform: none;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   MARQUEE PAUSE
+   Deliberately in @layer utilities, not components. The tracks are driven by
+   `animate-marquee` utilities whose `animation` shorthand resets
+   animation-play-state to `running`, and utilities beat components in the
+   cascade — so a components-layer pause rule is silently ignored.
+   ═══════════════════════════════════════════════════════════════════════════ */
+@layer utilities {
+  .marquee-pausable:hover .marquee-track,
+  .marquee-pausable:focus-within .marquee-track {
+    animation-play-state: paused;
   }
 }

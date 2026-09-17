@@ -132,7 +132,7 @@ export const deliverables = {
 export const emailDesigns = {
   eyebrow: "Selected work",
   headline: "Email your customers actually want to open",
-  sub: "Designed from scratch and built natively in Klaviyo. Hover any one of them to read it end to end.",
+  sub: "Designed from scratch and built natively in Klaviyo — for the phone, where most of them get opened. Click any one to see it full size.",
   // Real client work. Each image is a full-length email export, so `w` and `h`
   // carry the true pixel size — the carousel needs the real aspect ratio to
   // scroll the design on hover instead of cropping it.

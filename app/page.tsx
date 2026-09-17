@@ -1,5 +1,6 @@
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
+import EmailStrip from "@/components/EmailStrip";
 import ResultsTicker from "@/components/ResultsTicker";
 import Problem from "@/components/Problem";
 import Deliverables from "@/components/Deliverables";
@@ -15,13 +16,14 @@ import FinalCta from "@/components/FinalCta";
 import Booking from "@/components/Booking";
 import Footer from "@/components/Footer";
 import StickyCta from "@/components/StickyCta";
+import EmailLightbox from "@/components/EmailLightbox";
 import ScrollReveal from "@/components/ScrollReveal";
 
 /**
  * Section order is deliberate — it follows the buyer's questions in the order
  * they actually ask them:
  *
- *   What is this? → What have you done? → Do you understand my problem? →
+ *   What is this? → Can you design? → Do you understand my problem? →
  *   What do I get? → Can you actually design? → Does it work? → Who says so? →
  *   How does it run? → Am I a fit? → Who are you? → What's my risk? →
  *   Objections → Book.
@@ -32,10 +34,11 @@ export default function Page() {
       <Nav />
       <main>
         <Hero />
-        <ResultsTicker />
+        <EmailStrip />
         <Problem />
         <Deliverables />
         <EmailCarousel />
+        <ResultsTicker />
         <Results />
         <Reviews />
         <Process />
@@ -47,6 +50,7 @@ export default function Page() {
         <Booking />
       </main>
       <Footer />
+      <EmailLightbox />
       <StickyCta />
       <ScrollReveal />
     </>
