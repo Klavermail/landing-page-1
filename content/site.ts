@@ -143,16 +143,27 @@ export const emailDesigns = {
    * Export at 2-3x: Chrome devtools -> device toolbar -> width 600, DPR 3 ->
    * "capture full size screenshot". Aim for >=1200px wide, no height cap.
    *
-   * While this list is empty, the hero strip, the Work section and the Work
+   * If this list is emptied, the hero strip, the Work section and the Work
    * nav link all remove themselves.
    */
-  items: [] as {
-    src: string;
-    w: number;
-    h: number;
-    brand: string;
-    alt: string;
-  }[],
+  items: [
+    { src: "/emails/remobrush-launch.png", w: 600, h: 4088, brand: "RemoBrush", alt: "RemoBrush — product launch announcement" },
+    { src: "/emails/yema-built-for-the-deep.png", w: 800, h: 3566, brand: "YEMA", alt: "YEMA — dive watch collection feature" },
+    { src: "/emails/thirty4ers-awra-shorts.png", w: 600, h: 4194, brand: "Thirty4ers", alt: "Thirty4ers — product launch written as breaking news" },
+    { src: "/emails/yippy-tropical-mango.png", w: 600, h: 3012, brand: "Yippy", alt: "Yippy — new flavour launch" },
+    { src: "/emails/manime-welcome.png", w: 600, h: 3197, brand: "MANIME", alt: "MANIME — welcome flow for a watch brand" },
+    { src: "/emails/remobrush-kids-microplastics.png", w: 600, h: 4567, brand: "RemoBrush", alt: "RemoBrush — problem-led campaign for a kids product" },
+    { src: "/emails/salaam-cola-yemonade.png", w: 600, h: 2919, brand: "Salaam Cola", alt: "Salaam Cola — flavour launch campaign" },
+    { src: "/emails/thirty4ers-devotion-set.png", w: 600, h: 4005, brand: "Thirty4ers", alt: "Thirty4ers — bundle promotion campaign" },
+    { src: "/emails/arvella-welcome.png", w: 600, h: 4157, brand: "Arvella", alt: "Arvella — welcome flow with discount code" },
+    { src: "/emails/remobrush-science.png", w: 600, h: 4582, brand: "RemoBrush", alt: "RemoBrush — science-led education campaign" },
+    { src: "/emails/ffected-winter-jacket.png", w: 600, h: 2657, brand: "F/FECTED", alt: "F/FECTED — outerwear launch campaign" },
+    { src: "/emails/yippy-wintergreen.png", w: 600, h: 2990, brand: "Yippy", alt: "Yippy — ingredient education campaign" },
+    { src: "/emails/thirty4ers-most-loved.png", w: 600, h: 4047, brand: "Thirty4ers", alt: "Thirty4ers — monthly bestsellers campaign" },
+    { src: "/emails/sunnamusk-new-chapter.png", w: 600, h: 3606, brand: "Sunnamusk", alt: "Sunnamusk — fragrance launch campaign" },
+    { src: "/emails/remobrush-waitlist.png", w: 600, h: 4088, brand: "RemoBrush", alt: "RemoBrush — pre-launch waitlist teaser" },
+    { src: "/emails/deenathletic-be-the-reason.png", w: 600, h: 3290, brand: "Deenathletic", alt: "Deenathletic — collection launch campaign" },
+  ],
 };
 
 /* ── RESULTS (Klaviyo dashboards) ─────────────────────────────────────────── */
