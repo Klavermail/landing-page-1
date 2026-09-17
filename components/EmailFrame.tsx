@@ -43,11 +43,19 @@ export default function EmailFrame({
           }`}
         >
           <Image
-            src={item.src}
+            /*
+              The strip card is 172px wide, so it gets a 344px file — exactly 2x
+              for a retina screen. Serving the full 600px export there costs 3.4x
+              the bytes and shows nothing extra.
+            */
+            src={size === "lg" ? item.src : item.srcSm}
             alt={cloned ? "" : item.alt}
             width={item.w}
             height={item.h}
             unoptimized
+            loading="lazy"
+            placeholder="blur"
+            blurDataURL={item.blur}
             className="email-scroll block h-auto w-full"
           />
         </span>

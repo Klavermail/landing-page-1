@@ -26,3 +26,9 @@ Filenames don't matter — they get wired up in `content/site.ts` afterwards.
 
 Files here are served exactly as uploaded — Next's image optimizer is bypassed
 for them, because it re-encodes to JPEG and halves the width of very tall images.
+
+## After uploading
+
+Run `node scripts/prepare-emails.mjs`. It converts to lossless WebP, verifies
+pixel-for-pixel that nothing visible changed, builds the small hero-strip
+variant and a blur preview, and prints the `content/site.ts` entries to paste.

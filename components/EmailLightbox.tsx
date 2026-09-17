@@ -123,6 +123,8 @@ export default function EmailLightbox() {
             height={item.h}
             unoptimized
             priority
+            placeholder="blur"
+            blurDataURL={item.blur}
             className="block h-auto w-full"
           />
         </div>
