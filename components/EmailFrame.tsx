@@ -21,7 +21,9 @@ export default function EmailFrame({
   size?: "sm" | "lg";
   cloned?: boolean;
 }) {
-  const screen = size === "lg" ? "w-[268px] h-[500px]" : "w-[172px] h-[320px]";
+  // 300px is the retina threshold for a 600px-wide export: 600 / 300 = exactly
+  // 2x. Wider than this and the source can no longer cover a retina screen.
+  const screen = size === "lg" ? "w-[300px] h-[560px]" : "w-[172px] h-[320px]";
 
   return (
     <figure
