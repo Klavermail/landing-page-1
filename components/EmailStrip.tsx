@@ -6,6 +6,8 @@ import { emailDesigns } from "@/content/site";
  * is the first thing a visitor sees rather than something 3,000px down.
  */
 export default function EmailStrip() {
+  if (emailDesigns.items.length === 0) return null;
+
   const items = emailDesigns.items;
   const row = [...items, ...items];
 

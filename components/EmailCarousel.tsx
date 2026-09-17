@@ -36,6 +36,8 @@ function Row({
 }
 
 export default function EmailCarousel() {
+  if (emailDesigns.items.length === 0) return null;
+
   const { items } = emailDesigns;
   const half = Math.ceil(items.length / 2);
 

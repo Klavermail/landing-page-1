@@ -5,8 +5,8 @@
  *  Everything you’ll want to change lives in this one file. Edit the text and
  *  image paths here and the whole page updates. No need to touch components.
  *
- *  Image paths point into /public. e.g. "/emails/email-01.svg" is the file at
- *  public/emails/email-01.svg. Drop a PNG/JPG in there and update the path.
+ *  Image paths point into /public. e.g. "/results/result-01.svg" is the file
+ *  at public/results/result-01.svg. Drop a PNG/JPG in and update the path.
  * ─────────────────────────────────────────────────────────────────────────────
  */
 
@@ -132,34 +132,27 @@ export const deliverables = {
 export const emailDesigns = {
   eyebrow: "Selected work",
   headline: "Email your customers actually want to open",
-  sub: "Designed from scratch and built natively in Klaviyo — for the phone, where most of them get opened. Click any one to see it full size.",
-  // Real client work. Each image is a full-length email export, so `w` and `h`
-  // carry the true pixel size — the carousel needs the real aspect ratio to
-  // scroll the design on hover instead of cropping it.
-  items: [
-    { src: "/emails/real/remobrush-launch-its-here.webp", w: 294, h: 2000, brand: "RemoBrush", alt: "RemoBrush — product launch announcement" },
-    { src: "/emails/real/yema-built-for-the-deep.webp", w: 449, h: 2000, brand: "YEMA", alt: "YEMA — dive watch collection feature" },
-    { src: "/emails/real/black-bee-honey-welcome.webp", w: 277, h: 2000, brand: "Black Bee Honey", alt: "Black Bee Honey — welcome flow with first-order offer" },
-    { src: "/emails/real/thirty4ers-elites-restocked.webp", w: 292, h: 2000, brand: "Thirty4ers", alt: "Thirty4ers — back-in-stock restock campaign" },
-    { src: "/emails/real/yippy-tropical-mango.webp", w: 398, h: 2000, brand: "Yippy", alt: "Yippy — new flavour launch" },
-    { src: "/emails/real/luxury-scent-welcome.webp", w: 333, h: 2000, brand: "Luxury Scent", alt: "Luxury Scent — welcome flow for a fragrance brand" },
-    { src: "/emails/real/ffected-black-friday.webp", w: 395, h: 2000, brand: "F/FECTED", alt: "F/FECTED — Black Friday campaign" },
-    { src: "/emails/real/salaam-cola-drink-with-intention.webp", w: 411, h: 2000, brand: "Salaam Cola", alt: "Salaam Cola — brand story and comparison campaign" },
-    { src: "/emails/real/manime-welcome.webp", w: 375, h: 2000, brand: "MANIME", alt: "MANIME — welcome flow for a watch brand" },
-    { src: "/emails/real/remobrush-kids-microplastics.webp", w: 263, h: 2000, brand: "RemoBrush", alt: "RemoBrush — problem-led campaign for a kids product" },
-    { src: "/emails/real/deenathletic-be-the-reason.webp", w: 365, h: 2000, brand: "Deenathletic", alt: "Deenathletic — collection launch campaign" },
-    { src: "/emails/real/aromatix-welcome.webp", w: 257, h: 2000, brand: "Aromatix", alt: "Aromatix — welcome flow with discount code" },
-    { src: "/emails/real/thirty4ers-awra-shorts-breaking-news.webp", w: 286, h: 2000, brand: "Thirty4ers", alt: "Thirty4ers — product launch written as breaking news" },
-    { src: "/emails/real/bilal-never-miss-a-prayer.webp", w: 394, h: 2000, brand: "Bilal", alt: "Bilal — product education campaign" },
-    { src: "/emails/real/yippy-clarity-without-addiction.webp", w: 401, h: 2000, brand: "Yippy", alt: "Yippy — ingredient education campaign" },
-    { src: "/emails/real/arvella-welcome.webp", w: 289, h: 2000, brand: "Arvella", alt: "Arvella — welcome flow for a fragrance brand" },
-    { src: "/emails/real/sunna-halal-collagen.webp", w: 312, h: 2000, brand: "Sunna Supplements", alt: "Sunna Supplements — supplement promotion campaign" },
-    { src: "/emails/real/remobrush-science-salvadorine.webp", w: 262, h: 2000, brand: "RemoBrush", alt: "RemoBrush — science-led education campaign" },
-    { src: "/emails/real/thirty4ers-devotion-set.webp", w: 300, h: 2000, brand: "Thirty4ers", alt: "Thirty4ers — bundle promotion campaign" },
-    { src: "/emails/real/ffected-black-friday-starts-now.webp", w: 371, h: 2000, brand: "F/FECTED", alt: "F/FECTED — Black Friday early access campaign" },
-    { src: "/emails/real/remobrush-waitlist-teaser.webp", w: 294, h: 2000, brand: "RemoBrush", alt: "RemoBrush — pre-launch waitlist teaser" },
-    { src: "/emails/real/thirty4ers-most-loved.webp", w: 297, h: 2000, brand: "Thirty4ers", alt: "Thirty4ers — monthly bestsellers campaign" },
-  ],
+  sub: "Designed from scratch and built natively in Klaviyo. Click any one to see it full size.",
+  /**
+   * Empty until the re-exported designs land.
+   *
+   * Drop files into public/emails/ and add an entry each. `w` and `h` must be
+   * the image's true pixel size — the carousel uses the real aspect ratio to
+   * scroll the design on hover instead of cropping it.
+   *
+   * Export at 2-3x: Chrome devtools -> device toolbar -> width 600, DPR 3 ->
+   * "capture full size screenshot". Aim for >=1200px wide, no height cap.
+   *
+   * While this list is empty, the hero strip, the Work section and the Work
+   * nav link all remove themselves.
+   */
+  items: [] as {
+    src: string;
+    w: number;
+    h: number;
+    brand: string;
+    alt: string;
+  }[],
 };
 
 /* ── RESULTS (Klaviyo dashboards) ─────────────────────────────────────────── */

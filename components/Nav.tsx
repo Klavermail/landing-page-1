@@ -2,9 +2,12 @@
 
 import { useEffect, useState } from "react";
 import { Logo } from "./Logo";
-import { cta, nav, site } from "@/content/site";
+import { cta, emailDesigns, nav, site } from "@/content/site";
 
 export default function Nav() {
+  // drop the Work link while there are no designs to show
+  const links = nav.filter((n) => n.href !== "#work" || emailDesigns.items.length > 0);
+
   const [solid, setSolid] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -37,7 +40,7 @@ export default function Nav() {
         </a>
 
         <nav aria-label="Primary" className="hidden items-center gap-1 lg:flex">
-          {nav.map((item) => (
+          {links.map((item) => (
             <a
               key={item.href}
               href={item.href}
@@ -83,7 +86,7 @@ export default function Nav() {
         }`}
       >
         <nav aria-label="Mobile" className="flex flex-col gap-1 px-5 py-5">
-          {nav.map((item) => (
+          {links.map((item) => (
             <a
               key={item.href}
               href={item.href}
