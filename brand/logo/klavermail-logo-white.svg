@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="188" height="26" viewBox="0 0 188 26" role="img" aria-label="Klavermail">
+  <g fill="#FFFFFF" transform="translate(0 1)">
+    <path d="M12 12C12 5.4 14.9 2.8 17.6 4.2C20.3 5.6 19.3 9.9 12 12Z"/>
+    <path d="M12 12C12 5.4 14.9 2.8 17.6 4.2C20.3 5.6 19.3 9.9 12 12Z" transform="rotate(90 12 12)"/>
+    <path d="M12 12C12 5.4 14.9 2.8 17.6 4.2C20.3 5.6 19.3 9.9 12 12Z" transform="rotate(180 12 12)"/>
+    <path d="M12 12C12 5.4 14.9 2.8 17.6 4.2C20.3 5.6 19.3 9.9 12 12Z" transform="rotate(270 12 12)"/>
+  </g>
+  <text x="34" y="19.5" fill="#FFFFFF"
+        font-family="Inter Tight, Inter, Helvetica, Arial, sans-serif"
+        font-size="21" font-weight="600" letter-spacing="-0.74">Klavermail</text>
+</svg>

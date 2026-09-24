@@ -1,0 +1,37 @@
+/* Klavermail design tokens — paste into any Tailwind v4 @theme block or :root */
+:root {
+  /* brand */
+  --color-ink:        #000000;
+  --color-lime:       #c6ff00;
+  --color-lime-dim:   #a8d900;   /* hover / pressed */
+  --color-lime-deep:  #6f8f00;   /* quiet lime borders */
+
+  /* surfaces */
+  --color-surface:    #070806;
+  --color-panel:      #0a0b09;
+  --color-panel-2:    #101210;
+  --color-panel-3:    #161815;
+
+  /* lines and text */
+  --color-line:        rgba(255, 255, 255, 0.09);
+  --color-line-strong: rgba(255, 255, 255, 0.16);
+  --color-mute:        rgba(255, 255, 255, 0.56);  /* body — 6.49:1, AA */
+  --color-mute-2:      rgba(255, 255, 255, 0.38);  /* labels only — 3.39:1 */
+
+  /* type */
+  --font-display: "Inter Tight", ui-sans-serif, system-ui, sans-serif;
+  --font-sans:    "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono:    "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  /* shape */
+  --radius-card: 18px;
+
+  /* motion */
+  --ease-enter: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-enter:  0.85s;
+}
+
+/* Headlines: tight, large, negative tracking */
+.display { font-family: var(--font-display); font-weight: 600; letter-spacing: -0.03em; line-height: 0.98; }
+/* The only thing ever spaced wide */
+.label   { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-lime); }
