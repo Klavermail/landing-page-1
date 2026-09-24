@@ -357,7 +357,7 @@ export const founder = {
   eyebrow: "Who you’re working with",
   name: "Ibrahim Dallab",
   role: "Founder, Klavermail",
-  photo: "/people/founder.svg",
+  photo: "/people/founder.webp",
   paragraphs: [
     "I’ve spent the last several years doing exactly one thing: making Klaviyo accounts earn more for ecommerce brands. Not paid ads, not funnels, not “growth”. Email and SMS retention, on one platform, done properly.",
     "I started Klavermail because I kept auditing accounts that had been handed to generalist agencies. Beautiful reports, three flows switched on, and a template that hadn’t been touched in two years. The brands were paying for activity, not revenue.",

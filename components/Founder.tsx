@@ -9,22 +9,37 @@ export default function Founder() {
       <div className="grid items-start gap-12 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-16">
         {/* ── Portrait ─────────────────────────────────────────────────── */}
         <div data-reveal className="relative">
-          <div className="relative overflow-hidden rounded-[18px] border border-line bg-panel-2">
+          {/*
+            The photo is shot on a green close to the brand lime, so it is given
+            a lime bloom behind and a lime-tinted edge — the background reads as
+            deliberate rather than as a stray colour against the black page.
+          */}
+          <div
+            aria-hidden
+            className="bloom -left-8 -top-8 h-64 w-64 opacity-[0.22]"
+          />
+          <div className="relative overflow-hidden rounded-[20px] border border-lime/25 bg-panel-2 shadow-[0_30px_80px_-30px_rgba(198,255,0,0.28)]">
             <Image
               src={founder.photo}
               alt={`${founder.name}, ${founder.role}`}
-              width={720}
-              height={880}
-              sizes="(max-width: 1024px) 100vw, 420px"
-              className="h-auto w-full"
+              width={1080}
+              height={1080}
+              /*
+                Served as-is. The source is already a 1080px WebP at 127KB,
+                which covers the ~480px slot at 2x; the optimizer would only
+                re-encode it to JPEG at q75 for no gain.
+              */
+              unoptimized
+              className="block h-auto w-full"
             />
+            {/* grounds the square photo into the page and carries the label */}
             <div
               aria-hidden
-              className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"
+              className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black via-black/55 to-transparent"
             />
-            <div className="absolute inset-x-0 bottom-0 flex items-center gap-2.5 p-6">
-              <LogoMark className="h-4 w-4 text-lime" />
-              <span className="font-mono text-[10.5px] tracking-[0.16em] text-white/75 uppercase">
+            <div className="absolute inset-x-0 bottom-0 flex items-center gap-2.5 p-5 sm:p-6">
+              <LogoMark className="h-4 w-4 shrink-0 text-lime" />
+              <span className="font-mono text-[10.5px] tracking-[0.16em] text-white/80 uppercase">
                 {founder.role}
               </span>
             </div>

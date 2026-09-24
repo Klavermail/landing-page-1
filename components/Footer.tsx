@@ -5,7 +5,7 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="relative border-t border-line px-5 pb-10 pt-16 sm:px-8">
+    <footer className="relative overflow-hidden border-t border-line px-5 pt-16 pb-0 sm:px-8">
       <div className="mx-auto w-full max-w-[1200px]">
         <div className="grid gap-12 md:grid-cols-[minmax(0,1.4fr)_repeat(2,minmax(0,1fr))_minmax(0,1fr)]">
           {/* ── Brand ────────────────────────────────────────────────── */}
@@ -94,10 +94,15 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Oversized wordmark, cropped by the viewport bottom */}
+      {/*
+        Oversized wordmark, sitting hard against the bottom of the page.
+        `leading-[0.62]` trims the line box down to the glyphs — "Klavermail"
+        has no descenders — so the baseline lands exactly on the page edge with
+        no dead black beneath it, and the letters bleed off rather than float.
+      */}
       <p
         aria-hidden
-        className="font-display pointer-events-none mt-10 select-none text-center text-[clamp(3.5rem,15vw,13rem)] leading-[0.8] tracking-[-0.05em] text-white/[0.035]"
+        className="font-display pointer-events-none mt-10 -mb-[0.06em] select-none text-center text-[clamp(3.5rem,15vw,13rem)] leading-[0.62] tracking-[-0.05em] text-white/[0.035]"
       >
         Klavermail
       </p>
