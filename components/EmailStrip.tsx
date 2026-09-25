@@ -14,16 +14,15 @@ export default function EmailStrip() {
   return (
     <section
       aria-label="Recent email designs"
-      className="relative border-y border-line bg-panel/30 py-9"
+      className="relative border-y border-line bg-panel/30 py-10"
     >
       <div className="marquee-mask marquee-pausable overflow-hidden">
-        <div className="marquee-track animate-marquee-logos gap-4">
+        <div className="marquee-track animate-marquee gap-5">
           {row.map((item, i) => (
             <EmailFrame
               key={`${item.src}-${i}`}
               item={item}
               index={i % items.length}
-              size="sm"
               cloned={i >= items.length}
             />
           ))}

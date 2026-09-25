@@ -7,8 +7,6 @@
  *   1. convert to lossless WebP  (identical visible pixels, ~37% smaller)
  *   2. verify pixel-for-pixel that nothing visible changed, and only delete
  *      the original once that passes
- *   3. build a 344px "-sm" variant for the 172px hero strip — exactly 2x for a
- *      retina screen, where the full 600px file would cost 3.4x the bytes
  *   4. build a 10px blur preview so cards are never blank while loading
  *   5. print ready-made content/site.ts entries
  *
@@ -20,7 +18,6 @@ import { readdirSync, readFileSync, statSync, unlinkSync } from "node:fs";
 import path from "node:path";
 
 const DIR = path.join(process.cwd(), "public/emails");
-const STRIP_WIDTH = 344; // 172px card at 2x
 
 const raw = (p) => sharp(readFileSync(p)).ensureAlpha().raw().toBuffer({ resolveWithObject: true });
 
@@ -59,12 +56,10 @@ for (const f of readdirSync(DIR).sort()) {
   }
 
   const slug = path.basename(webp, ".webp");
-  await sharp(readFileSync(webp)).resize({ width: STRIP_WIDTH }).webp({ lossless: true, effort: 6 })
-    .toFile(path.join(DIR, `${slug}-sm.webp`));
   const blur = (await sharp(readFileSync(webp)).resize({ width: 10 }).webp({ quality: 40 }).toBuffer())
     .toString("base64");
   const { width, height } = await sharp(readFileSync(webp)).metadata();
-  entries.push(`    { src: "/emails/${slug}.webp", srcSm: "/emails/${slug}-sm.webp", w: ${width}, h: ${height}, brand: "TODO", alt: "TODO", blur: "data:image/webp;base64,${blur}" },`);
+  entries.push(`    { src: "/emails/${slug}.webp", w: ${width}, h: ${height}, brand: "TODO", alt: "TODO", blur: "data:image/webp;base64,${blur}" },`);
 }
 
 console.log(`\nPaste into content/site.ts -> emailDesigns.items (fill in brand and alt):\n`);

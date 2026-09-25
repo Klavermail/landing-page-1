@@ -391,11 +391,8 @@
    top and hovering thumbs the rest through — the way you'd actually view one.
    ═══════════════════════════════════════════════════════════════════════════ */
 @layer components {
-  .email-card-lg {
+  .email-card {
     --screen-h: 560px;
-  }
-  .email-card-sm {
-    --screen-h: 320px;
   }
 
   .email-scroll {
@@ -412,9 +409,6 @@
     transform: translateY(calc(-100% + var(--screen-h)));
   }
 
-  .email-card-sm .email-scroll {
-    transition-duration: 6s;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {

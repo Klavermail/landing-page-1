@@ -26,7 +26,6 @@ function Row({
             key={`${item.src}-${i}`}
             item={item}
             index={offset + (i % items.length)}
-            size="lg"
             cloned={i >= items.length}
           />
         ))}
