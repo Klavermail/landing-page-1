@@ -1,6 +1,5 @@
 "use client";
 
-import Script from "next/script";
 import { useEffect, useRef, useState } from "react";
 import { Section, SectionHeading } from "./Section";
 import { booking, site } from "@/content/site";
@@ -26,26 +25,74 @@ export default function Booking() {
   const notConfigured = site.calendlyUrl.includes(PLACEHOLDER);
   const embedUrl = `${site.calendlyUrl}?${CALENDLY_PARAMS}`;
 
-  // Calendly’s script only measures correctly once it’s actually visible.
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
+  const widgetRef = useRef<HTMLDivElement>(null);
+  const [status, setStatus] = useState<"loading" | "ready" | "blocked">("loading");
 
   /**
-   * Ad blockers and privacy extensions routinely block assets.calendly.com, and
-   * corporate networks sometimes do too. Without this the panel sits on
-   * "Loading calendar…" forever and the prospect simply cannot book. Calendly
-   * injects an <iframe> into the widget div once it runs, so if none has
-   * appeared we swap in a direct link to the booking page.
+   * Loads Calendly and initialises the widget explicitly.
+   *
+   * Two things matter here and both were previously wrong:
+   *
+   * 1. Calendly's auto-scan appends its iframe as a CHILD of any element with
+   *    `.calendly-inline-widget`, so that element has to be EMPTY. Putting a
+   *    full-height loading message inside it pushed the iframe out of the 700px
+   *    box and the calendar rendered off-screen — which looks exactly like
+   *    "the calendar isn't loading". The placeholder is now a sibling overlay.
+   *
+   * 2. `next/script` with `lazyOnload` waits on window.load, which may already
+   *    have fired by the time this mounts. Injecting the script here and
+   *    calling initInlineWidget on its load event removes that race, and gives
+   *    a real onerror instead of guessing from a timeout.
    */
-  const widgetRef = useRef<HTMLDivElement>(null);
-  const [blocked, setBlocked] = useState(false);
   useEffect(() => {
     if (notConfigured) return;
+    let cancelled = false;
+
+    const init = () => {
+      if (cancelled || !widgetRef.current) return;
+      const Calendly = (window as unknown as { Calendly?: { initInlineWidget: (o: object) => void } }).Calendly;
+      if (!Calendly) return setStatus("blocked");
+      widgetRef.current.innerHTML = "";
+      Calendly.initInlineWidget({ url: embedUrl, parentElement: widgetRef.current });
+      setStatus("ready");
+    };
+
+    // Calendly's stylesheet — without it the widget renders unstyled
+    const CSS = "https://assets.calendly.com/assets/external/widget.css";
+    if (!document.querySelector(`link[href="${CSS}"]`)) {
+      const link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.href = CSS;
+      document.head.appendChild(link);
+    }
+
+    const SRC = "https://assets.calendly.com/assets/external/widget.js";
+    const existing = document.querySelector<HTMLScriptElement>(`script[src="${SRC}"]`);
+    if (existing) {
+      if ((window as unknown as { Calendly?: unknown }).Calendly) init();
+      else {
+        existing.addEventListener("load", init);
+        existing.addEventListener("error", () => setStatus("blocked"));
+      }
+    } else {
+      const script = document.createElement("script");
+      script.src = SRC;
+      script.async = true;
+      script.onload = init;
+      script.onerror = () => !cancelled && setStatus("blocked");
+      document.body.appendChild(script);
+    }
+
+    // Last resort: the request can hang rather than error outright
     const timer = setTimeout(() => {
-      if (!widgetRef.current?.querySelector("iframe")) setBlocked(true);
-    }, 7000);
-    return () => clearTimeout(timer);
-  }, [notConfigured]);
+      if (!cancelled && !widgetRef.current?.querySelector("iframe")) setStatus("blocked");
+    }, 12000);
+
+    return () => {
+      cancelled = true;
+      clearTimeout(timer);
+    };
+  }, [notConfigured, embedUrl]);
 
   return (
     <Section id="book" className="border-t border-line">
@@ -119,51 +166,51 @@ export default function Booking() {
             </div>
           ) : (
             <>
-              <div
-                ref={widgetRef}
-                className="calendly-inline-widget rounded-[14px]"
-                data-url={embedUrl}
-                style={{ minWidth: 320, height: 700 }}
-                aria-label="Booking calendar"
-              >
-                {/* Replaced by Calendly’s iframe, or by the fallback below */}
-                <div className="flex h-full flex-col items-center justify-center gap-5 px-8 text-center">
-                  {blocked ? (
-                    <>
-                      <p className="max-w-xs text-[14.5px] leading-relaxed text-mute">
-                        The calendar couldn’t load — usually an ad blocker or a
-                        privacy extension. You can still book in one click.
-                      </p>
-                      <a
-                        href={site.calendlyUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="btn btn-primary"
-                      >
-                        Open the booking page
-                        <Arrow className="h-4 w-4" />
-                      </a>
-                      <a
-                        href={`mailto:${site.email}`}
-                        className="text-[13px] text-mute-2 underline underline-offset-4 transition-colors hover:text-lime"
-                      >
-                        or email us instead
-                      </a>
-                    </>
-                  ) : (
-                    <span className="font-mono text-[11px] tracking-[0.16em] text-mute-2 uppercase">
-                      Loading calendar…
-                    </span>
-                  )}
-                </div>
-              </div>
-              {mounted && (
-                <Script
-                  src="https://assets.calendly.com/assets/external/widget.js"
-                  strategy="lazyOnload"
+              {/*
+                This element must stay EMPTY — Calendly appends its iframe here.
+                The placeholder is an overlay on top, not a child.
+              */}
+              <div className="relative">
+                <div
+                  ref={widgetRef}
+                  className="calendly-inline-widget overflow-hidden rounded-[14px]"
+                  style={{ minWidth: 320, height: 700 }}
+                  aria-label="Booking calendar"
                 />
-              )}
-              {/* Fallback for anyone with the embed blocked */}
+
+                {status !== "ready" && (
+                  <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center gap-5 px-8 text-center">
+                    {status === "blocked" ? (
+                      <div className="pointer-events-auto flex flex-col items-center gap-5">
+                        <p className="max-w-xs text-[14.5px] leading-relaxed text-mute">
+                          The calendar couldn&rsquo;t load &mdash; usually an ad blocker or a
+                          privacy extension. You can still book in one click.
+                        </p>
+                        <a
+                          href={site.calendlyUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="btn btn-primary"
+                        >
+                          Open the booking page
+                          <Arrow className="h-4 w-4" />
+                        </a>
+                        <a
+                          href={`mailto:${site.email}`}
+                          className="text-[13px] text-mute-2 underline underline-offset-4 transition-colors hover:text-lime"
+                        >
+                          or email us instead
+                        </a>
+                      </div>
+                    ) : (
+                      <span className="font-mono text-[11px] tracking-[0.16em] text-mute-2 uppercase">
+                        Loading calendar&hellip;
+                      </span>
+                    )}
+                  </div>
+                )}
+              </div>
+
               <noscript>
                 <a href={site.calendlyUrl} className="btn btn-primary m-4">
                   Open the booking calendar
