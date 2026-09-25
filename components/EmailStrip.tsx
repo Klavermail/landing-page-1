@@ -8,7 +8,9 @@ import { emailDesigns } from "@/content/site";
 export default function EmailStrip() {
   if (emailDesigns.items.length === 0) return null;
 
-  const items = emailDesigns.items;
+  // A curated handful up here; the Work section further down shows them all.
+  const picks = emailDesigns.items.filter((i) => i.hero);
+  const items = picks.length > 0 ? picks : emailDesigns.items;
   const row = [...items, ...items];
 
   return (
