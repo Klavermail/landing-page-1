@@ -60,12 +60,12 @@ export default function Results() {
       </dl>
 
       {/* ── Dashboard grid ─────────────────────────────────────────────── */}
-      <ul className="mt-5 grid gap-4 md:grid-cols-2">
+      <ul className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {results.items.map((item, i) => (
           <li
             key={item.src}
             data-reveal
-            style={{ ["--reveal-delay" as string]: `${(i % 2) * 80}ms` }}
+            style={{ ["--reveal-delay" as string]: `${(i % 3) * 70}ms` }}
           >
             <button
               type="button"
@@ -79,7 +79,7 @@ export default function Results() {
                   alt={item.alt}
                   width={1280}
                   height={800}
-                  sizes="(max-width: 768px) 100vw, 50vw"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   className="h-auto w-full transition-transform duration-[900ms] ease-out group-hover:scale-[1.035]"
                 />
                 <span

@@ -2,11 +2,15 @@
 
 import { useEffect, useState } from "react";
 import { Logo } from "./Logo";
-import { cta, emailDesigns, nav, site } from "@/content/site";
+import { cta, emailDesigns, nav, reviews, site } from "@/content/site";
 
 export default function Nav() {
   // drop the Work link while there are no designs to show
-  const links = nav.filter((n) => n.href !== "#work" || emailDesigns.items.length > 0);
+  const links = nav.filter(
+    (n) =>
+      (n.href !== "#work" || emailDesigns.items.length > 0) &&
+      (n.href !== "#reviews" || reviews.items.length > 0),
+  );
 
   const [solid, setSolid] = useState(false);
   const [open, setOpen] = useState(false);

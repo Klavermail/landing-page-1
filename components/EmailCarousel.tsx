@@ -42,7 +42,7 @@ export default function EmailCarousel() {
   const half = Math.ceil(items.length / 2);
 
   return (
-    <section id="work" className="relative overflow-hidden border-t border-line py-24 md:py-32">
+    <section id="work" className="relative overflow-hidden border-t border-line py-20 md:py-24">
       <div
         aria-hidden
         className="bloom left-1/2 top-1/2 h-[420px] w-[900px] -translate-x-1/2 -translate-y-1/2 opacity-[0.09]"

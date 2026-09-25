@@ -6,7 +6,7 @@ export default function Guarantee() {
   if (!guarantee.enabled) return null;
 
   return (
-    <section className="relative overflow-hidden border-t border-line px-5 py-24 sm:px-8 md:py-32">
+    <section className="relative overflow-hidden border-t border-line px-5 py-20 sm:px-8 md:py-24">
       <div aria-hidden className="absolute inset-0 -z-10">
         <div className="grid-lines absolute inset-0 opacity-50" />
         <div className="bloom left-1/2 top-1/2 h-[440px] w-[820px] -translate-x-1/2 -translate-y-1/2 opacity-[0.2]" />

@@ -46,6 +46,8 @@ function ResultChip({ children }: { children: string }) {
 }
 
 export default function Reviews() {
+  if (reviews.items.length === 0) return null;
+
   const [featured, ...rest] = reviews.items;
 
   return (

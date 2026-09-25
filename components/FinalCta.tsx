@@ -4,7 +4,7 @@ import { Arrow } from "./Icons";
 
 export default function FinalCta() {
   return (
-    <section className="relative overflow-hidden border-t border-line px-5 py-24 sm:px-8 md:py-32">
+    <section className="relative overflow-hidden border-t border-line px-5 py-20 sm:px-8 md:py-24">
       <div aria-hidden className="absolute inset-0 -z-10">
         <div className="grid-lines absolute inset-0 opacity-60" />
         <div className="bloom bottom-[-30%] left-1/2 h-[520px] w-[900px] -translate-x-1/2 opacity-[0.26]" />

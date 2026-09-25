@@ -58,7 +58,9 @@ export default function Booking() {
 
       <div className="mt-14 grid gap-5 lg:grid-cols-[minmax(0,0.78fr)_minmax(0,1.22fr)]">
         {/* ── What happens on the call ─────────────────────────────────── */}
-        <div data-reveal className="flex flex-col gap-4">
+        {/* justify-between pulls the reassurance list down to meet the foot of
+           the calendar, instead of leaving ~150px hanging beside it */}
+        <div data-reveal className="flex flex-col justify-between gap-4">
           <ol className="flex flex-col gap-4">
             {booking.steps.map((step, i) => (
               <li key={step.title} className="panel flex gap-4 p-6">

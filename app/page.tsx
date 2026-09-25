@@ -6,7 +6,6 @@ import Problem from "@/components/Problem";
 import Deliverables from "@/components/Deliverables";
 import EmailCarousel from "@/components/EmailCarousel";
 import Results from "@/components/Results";
-import Reviews from "@/components/Reviews";
 import Process from "@/components/Process";
 import Qualifier from "@/components/Qualifier";
 import Founder from "@/components/Founder";
@@ -24,7 +23,7 @@ import ScrollReveal from "@/components/ScrollReveal";
  * they actually ask them:
  *
  *   What is this? → Can you design? → Do you understand my problem? →
- *   What do I get? → Can you actually design? → Does it work? → Who says so? →
+ *   What do I get? → Can you actually design? → Does it work? →
  *   How does it run? → Am I a fit? → Who are you? → What's my risk? →
  *   Objections → Book.
  */
@@ -40,7 +39,6 @@ export default function Page() {
         <EmailCarousel />
         <ResultsTicker />
         <Results />
-        <Reviews />
         <Process />
         <Qualifier />
         <Founder />

@@ -182,22 +182,16 @@ export const results = {
   ],
   items: [
     // ⚠️ PLACEHOLDER RESULTS — invented, not real client outcomes.
-    // Scaled to stay coherent with the $845K lifetime figure above: no single
-    // result exceeds it, and the dollar figures here sum to roughly $375K
-    // across four brands, leaving the other sixteen at a believable average.
-    // Client revenue tags were removed because "41% of revenue" for a
-    // "$3.2M/yr brand" silently implies $1.3M from one client.
-    // Replace all ten with real Klaviyo screenshots and real numbers.
+    // Six, chosen to spread across metric types (% lift, dollars, share of
+    // revenue, rate, multiplier) rather than repeat one shape. The dollar
+    // figures total $166K, comfortably under the $845K lifetime number.
+    // Replace all six with real Klaviyo screenshots and real numbers.
     { src: "/results/result-01.svg", alt: "Klaviyo dashboard showing attributed revenue growth", metric: "+312%", caption: "flow revenue in 90 days", niche: "Skincare" },
     { src: "/results/result-02.svg", alt: "Klaviyo flow performance dashboard", metric: "+$128K", caption: "from email in 6 months", niche: "Apparel" },
     { src: "/results/result-03.svg", alt: "Klaviyo campaign revenue dashboard", metric: "41%", caption: "of total revenue from email", niche: "Supplements" },
-    { src: "/results/result-04.svg", alt: "Klaviyo abandoned cart flow dashboard", metric: "+$9.4K/mo", caption: "added from 4 new flows", niche: "Home goods" },
     { src: "/results/result-05.svg", alt: "Klaviyo Black Friday campaign results", metric: "$38K", caption: "in one BFCM weekend", niche: "Accessories" },
     { src: "/results/result-06.svg", alt: "Klaviyo deliverability and open rate dashboard", metric: "28% → 54%", caption: "open rate after list cleanup", niche: "Beauty" },
-    { src: "/results/result-07.svg", alt: "Klaviyo welcome flow revenue dashboard", metric: "$4.80", caption: "revenue per recipient, welcome flow", niche: "Coffee" },
     { src: "/results/result-08.svg", alt: "Klaviyo year over year revenue comparison", metric: "2.7x", caption: "email revenue year on year", niche: "Pet" },
-    { src: "/results/result-09.svg", alt: "Klaviyo segmentation performance dashboard", metric: "+$96K", caption: "in 12 months", niche: "Footwear" },
-    { src: "/results/result-10.svg", alt: "Klaviyo winback flow dashboard", metric: "19%", caption: "of lapsed customers reactivated", niche: "Fitness" },
   ],
 };
 
@@ -205,54 +199,20 @@ export const results = {
 export const reviews = {
   eyebrow: "What clients say",
   headline: "The part where other people talk instead of us",
-  items: [
-    {
-      quote:
-        "We’d been through two agencies who sent us decks. Klavermail sent us live flows in week two. Email went from 11% to 38% of revenue in one quarter and I genuinely stopped thinking about it — which was the whole point.",
-      name: "Sarah Whitmore",
-      role: "Founder",
-      company: "Hydra Skin",
-      avatar: "/people/review-01.svg",
-      result: "11% → 38% of revenue",
-      featured: true,
-    },
-    {
-      quote:
-        "The design work is what sold my team. Our emails finally look like our brand instead of a template with our logo dropped in the corner.",
-      name: "Daniel Osei",
-      role: "Head of Ecommerce",
-      company: "Nordvell",
-      avatar: "/people/review-02.svg",
-      result: "+$128K in 6 months",
-    },
-    {
-      quote:
-        "Our deliverability was wrecked before they came in. They rebuilt authentication, cleaned the list, and our open rate almost doubled inside six weeks.",
-      name: "Priya Raman",
-      role: "Marketing Director",
-      company: "Atlas Supply",
-      avatar: "/people/review-03.svg",
-      result: "28% → 54% open rate",
-    },
-    {
-      quote:
-        "Best BFCM we’ve ever run, and I didn’t write a single email. The campaign calendar landed three weeks early with everything already built.",
-      name: "Marcus Feld",
-      role: "Co-founder",
-      company: "Kin + Co",
-      avatar: "/people/review-04.svg",
-      result: "$38K in one weekend",
-    },
-    {
-      quote:
-        "What I actually pay for is not thinking about email. It shows up, it converts, and the monthly report tells me exactly what earned what.",
-      name: "Elena Kowalski",
-      role: "Owner",
-      company: "Verdant Tea",
-      avatar: "/people/review-05.svg",
-      result: "41% of total revenue",
-    },
-  ],
+  /**
+   * Empty on purpose. Video testimonials are being recorded; this section and
+   * its nav link hide themselves while the list is empty and come back the
+   * moment entries are added.
+   */
+  items: [] as {
+    quote: string;
+    name: string;
+    role: string;
+    company: string;
+    avatar: string;
+    result: string;
+    featured?: boolean;
+  }[],
 };
 
 /* ── PROCESS ──────────────────────────────────────────────────────────────── */

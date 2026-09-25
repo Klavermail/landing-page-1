@@ -11,7 +11,7 @@ export function Section({
   className?: string;
 }) {
   return (
-    <section id={id} className={`relative px-5 py-24 sm:px-8 md:py-32 ${className}`}>
+    <section id={id} className={`relative px-5 py-20 sm:px-8 md:py-24 ${className}`}>
       <div className="mx-auto w-full max-w-[1200px]">{children}</div>
     </section>
   );

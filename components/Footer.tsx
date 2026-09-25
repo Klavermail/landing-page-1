@@ -1,8 +1,16 @@
 import { Logo } from "./Logo";
-import { footer, site } from "@/content/site";
+import { emailDesigns, footer, reviews, site } from "@/content/site";
 
 export default function Footer() {
   const year = new Date().getFullYear();
+  // don't link to sections that are currently hiding themselves
+  const hidden = new Set<string>();
+  if (reviews.items.length === 0) hidden.add("#reviews");
+  if (emailDesigns.items.length === 0) hidden.add("#work");
+  const columns = footer.columns.map((c) => ({
+    ...c,
+    links: c.links.filter((l) => !hidden.has(l.href)),
+  }));
 
   return (
     <footer className="relative overflow-hidden border-t border-line px-5 pt-16 pb-0 sm:px-8">
@@ -23,7 +31,7 @@ export default function Footer() {
           </div>
 
           {/* ── Link columns ─────────────────────────────────────────── */}
-          {footer.columns.map((col) => (
+          {columns.map((col) => (
             <nav key={col.title} aria-label={col.title}>
               <h3 className="font-mono text-[10.5px] tracking-[0.16em] text-white/40 uppercase">
                 {col.title}
