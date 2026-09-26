@@ -392,7 +392,15 @@
    ═══════════════════════════════════════════════════════════════════════════ */
 @layer components {
   .email-card {
-    --screen-h: 560px;
+    /* must match the card height at each breakpoint, or the hover scroll
+       stops short of the email's end (or runs past it) */
+    --screen-h: 351px;
+  }
+
+  @media (min-width: 640px) {
+    .email-card {
+      --screen-h: 560px;
+    }
   }
 
   .email-scroll {

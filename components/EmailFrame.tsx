@@ -30,8 +30,13 @@ export default function EmailFrame({
         className="block cursor-pointer"
       >
         <span
-          /* 300px is the retina ceiling for a 600px export: 600 / 300 is exactly 2x */
-          className="relative block h-[560px] w-[300px] overflow-hidden rounded-[12px] border border-line bg-white transition-all duration-500 group-hover:border-lime/40 group-hover:shadow-[0_26px_64px_-22px_rgba(198,255,0,0.3)]"
+          /*
+            300px is the retina ceiling for a 600px export: 600 / 300 is exactly
+            2x. On a phone that is 77% of a 390px screen, so one card fills it —
+            188px shows two and a half, and at 3.2x it is sharper still.
+            Aspect is held at 1:1.867 so the crop matches at both sizes.
+          */
+          className="relative block h-[351px] w-[188px] overflow-hidden rounded-[12px] border border-line bg-white transition-all duration-500 group-hover:border-lime/40 group-hover:shadow-[0_26px_64px_-22px_rgba(198,255,0,0.3)] sm:h-[560px] sm:w-[300px]"
         >
           <Image
             src={item.src}
