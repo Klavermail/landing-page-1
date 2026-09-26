@@ -1,3 +1,4 @@
+import DragScroller from "./DragScroller";
 import EmailFrame from "./EmailFrame";
 import { emailDesigns } from "@/content/site";
 
@@ -18,8 +19,8 @@ export default function EmailStrip() {
       aria-label="Recent email designs"
       className="relative border-y border-line bg-panel/30 py-10"
     >
-      <div className="marquee-mask marquee-pausable overflow-hidden">
-        <div className="marquee-track animate-marquee gap-5">
+      <DragScroller speed={34}>
+        <div className="flex w-max gap-4 sm:gap-5">
           {row.map((item, i) => (
             <EmailFrame
               key={`${item.src}-${i}`}
@@ -29,7 +30,7 @@ export default function EmailStrip() {
             />
           ))}
         </div>
-      </div>
+      </DragScroller>
     </section>
   );
 }

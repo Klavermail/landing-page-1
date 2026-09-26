@@ -1,3 +1,4 @@
+import DragScroller from "./DragScroller";
 import EmailFrame from "./EmailFrame";
 import { SectionHeading } from "./Section";
 import { emailDesigns } from "@/content/site";
@@ -11,16 +12,12 @@ function Row({
 }: {
   items: Design[];
   offset: number;
-  speed: "normal" | "slow";
+  speed: number;
 }) {
   const doubled = [...items, ...items];
   return (
-    <div className="marquee-mask marquee-pausable overflow-hidden">
-      <div
-        className={`marquee-track gap-5 sm:gap-6 ${
-          speed === "slow" ? "animate-marquee-slow" : "animate-marquee"
-        }`}
-      >
+    <DragScroller speed={speed}>
+      <div className="flex w-max gap-4 sm:gap-6">
         {doubled.map((item, i) => (
           <EmailFrame
             key={`${item.src}-${i}`}
@@ -30,7 +27,7 @@ function Row({
           />
         ))}
       </div>
-    </div>
+    </DragScroller>
   );
 }
 
@@ -56,8 +53,8 @@ export default function EmailCarousel() {
       </div>
 
       <div data-reveal className="flex flex-col gap-6 sm:gap-7">
-        <Row items={items.slice(0, half)} offset={0} speed="normal" />
-        <Row items={items.slice(half)} offset={half} speed="slow" />
+        <Row items={items.slice(0, half)} offset={0} speed={46} />
+        <Row items={items.slice(half)} offset={half} speed={32} />
       </div>
 
       <p className="mx-auto mt-12 w-full max-w-[1200px] px-5 font-mono text-[11px] tracking-[0.14em] text-mute-2 uppercase sm:px-8">

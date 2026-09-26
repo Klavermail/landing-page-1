@@ -439,3 +439,22 @@
     animation-play-state: paused;
   }
 }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   DRAG SCROLLER
+   Auto-drifts and can be dragged or swiped. The scrollbar is hidden because the
+   edge fade already signals there is more, and `scroll-behavior: auto` is
+   required — the global `smooth` would fight the per-frame scrollLeft writes.
+   ═══════════════════════════════════════════════════════════════════════════ */
+@layer components {
+  .drag-scroller {
+    scroll-behavior: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+  .drag-scroller::-webkit-scrollbar {
+    display: none;
+  }
+}
