@@ -11,13 +11,25 @@ import { Arrow, Check } from "./Icons";
  *
  * Set your real link in content/site.ts → site.calendlyUrl
  */
-const CALENDLY_PARAMS = new URLSearchParams({
-  hide_gdpr_banner: "1",
-  hide_landing_page_details: "1",
-  background_color: "0a0b09",
-  text_color: "ffffff",
-  primary_color: "c6ff00",
-}).toString();
+/**
+ * Colour params (background_color, text_color, primary_color) are a PAID
+ * Calendly feature. On a free plan they are at best ignored and can stop the
+ * widget rendering at all — and they are the only thing here that Calendly's
+ * own embed snippet does not include. Off by default so the embed is exactly
+ * the snippet Calendly generates; flip THEME to true once the plan supports it.
+ */
+const THEME = false;
+const CALENDLY_PARAMS = new URLSearchParams(
+  THEME
+    ? {
+        hide_gdpr_banner: "1",
+        hide_landing_page_details: "1",
+        background_color: "0a0b09",
+        text_color: "ffffff",
+        primary_color: "c6ff00",
+      }
+    : { hide_gdpr_banner: "1" },
+).toString();
 
 const PLACEHOLDER = "your-handle";
 
@@ -48,13 +60,26 @@ export default function Booking() {
     if (notConfigured) return;
     let cancelled = false;
 
+    const log = (msg: string, extra?: unknown) =>
+      console.info(`[Klavermail booking] ${msg}`, extra ?? "");
+
     const init = () => {
       if (cancelled || !widgetRef.current) return;
       const Calendly = (window as unknown as { Calendly?: { initInlineWidget: (o: object) => void } }).Calendly;
-      if (!Calendly) return setStatus("blocked");
+      if (!Calendly) {
+        log("script loaded but window.Calendly is missing — likely blocked or altered");
+        return setStatus("blocked");
+      }
       widgetRef.current.innerHTML = "";
       Calendly.initInlineWidget({ url: embedUrl, parentElement: widgetRef.current });
+      log("widget initialised with", embedUrl);
       setStatus("ready");
+      // an iframe that never appears means Calendly rejected the URL
+      setTimeout(() => {
+        if (!cancelled && !widgetRef.current?.querySelector("iframe")) {
+          log("no iframe after init — Calendly likely rejected this event URL");
+        }
+      }, 4000);
     };
 
     // Calendly's stylesheet — without it the widget renders unstyled
@@ -79,13 +104,19 @@ export default function Booking() {
       script.src = SRC;
       script.async = true;
       script.onload = init;
-      script.onerror = () => !cancelled && setStatus("blocked");
+      script.onerror = () => {
+        log("could not load assets.calendly.com — blocked by an extension or network");
+        if (!cancelled) setStatus("blocked");
+      };
       document.body.appendChild(script);
     }
 
     // Last resort: the request can hang rather than error outright
     const timer = setTimeout(() => {
-      if (!cancelled && !widgetRef.current?.querySelector("iframe")) setStatus("blocked");
+      if (!cancelled && !widgetRef.current?.querySelector("iframe")) {
+        log("timed out after 12s with no iframe");
+        setStatus("blocked");
+      }
     }, 12000);
 
     return () => {
@@ -173,7 +204,7 @@ export default function Booking() {
               <div className="relative">
                 <div
                   ref={widgetRef}
-                  className="calendly-inline-widget overflow-hidden rounded-[14px]"
+                  className="calendly-inline-widget overflow-hidden rounded-[14px] bg-white"
                   style={{ minWidth: 320, height: 700 }}
                   aria-label="Booking calendar"
                 />
