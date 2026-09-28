@@ -39,6 +39,8 @@ export default function Booking() {
 
   const widgetRef = useRef<HTMLDivElement>(null);
   const [status, setStatus] = useState<"loading" | "ready" | "blocked">("loading");
+  // surfaced on the page: console access on a phone is not realistic
+  const [reason, setReason] = useState("");
 
   /**
    * Loads Calendly and initialises the widget explicitly.
@@ -68,6 +70,7 @@ export default function Booking() {
       const Calendly = (window as unknown as { Calendly?: { initInlineWidget: (o: object) => void } }).Calendly;
       if (!Calendly) {
         log("script loaded but window.Calendly is missing — likely blocked or altered");
+        setReason("script loaded but Calendly did not initialise");
         return setStatus("blocked");
       }
       widgetRef.current.innerHTML = "";
@@ -78,6 +81,8 @@ export default function Booking() {
       setTimeout(() => {
         if (!cancelled && !widgetRef.current?.querySelector("iframe")) {
           log("no iframe after init — Calendly likely rejected this event URL");
+          setReason("Calendly loaded but rejected this event link");
+          setStatus("blocked");
         }
       }, 4000);
     };
@@ -106,7 +111,10 @@ export default function Booking() {
       script.onload = init;
       script.onerror = () => {
         log("could not load assets.calendly.com — blocked by an extension or network");
-        if (!cancelled) setStatus("blocked");
+        if (!cancelled) {
+          setReason("assets.calendly.com could not be reached");
+          setStatus("blocked");
+        }
       };
       document.body.appendChild(script);
     }
@@ -115,6 +123,7 @@ export default function Booking() {
     const timer = setTimeout(() => {
       if (!cancelled && !widgetRef.current?.querySelector("iframe")) {
         log("timed out after 12s with no iframe");
+        setReason("timed out waiting for the calendar");
         setStatus("blocked");
       }
     }, 12000);
@@ -204,7 +213,15 @@ export default function Booking() {
               <div className="relative">
                 <div
                   ref={widgetRef}
-                  className="calendly-inline-widget overflow-hidden rounded-[14px] bg-white"
+                  /*
+                    White only once the widget is really there. Painting it white
+                    up front put the fallback's light-on-dark text onto a white
+                    card, where it was invisible — a big white box with a lone
+                    button and no explanation.
+                  */
+                  className={`calendly-inline-widget overflow-hidden rounded-[14px] ${
+                    status === "ready" ? "bg-white" : "bg-panel-2"
+                  }`}
                   style={{ minWidth: 320, height: 700 }}
                   aria-label="Booking calendar"
                 />
@@ -213,7 +230,7 @@ export default function Booking() {
                   <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center gap-5 px-8 text-center">
                     {status === "blocked" ? (
                       <div className="pointer-events-auto flex flex-col items-center gap-5">
-                        <p className="max-w-xs text-[14.5px] leading-relaxed text-mute">
+                        <p className="max-w-xs text-[14.5px] leading-relaxed text-white/75">
                           The calendar couldn&rsquo;t load &mdash; usually an ad blocker or a
                           privacy extension. You can still book in one click.
                         </p>
@@ -232,6 +249,11 @@ export default function Booking() {
                         >
                           or email us instead
                         </a>
+                        {reason && (
+                          <p className="font-mono text-[10px] tracking-[0.12em] text-white/35 uppercase">
+                            {reason}
+                          </p>
+                        )}
                       </div>
                     ) : (
                       <span className="font-mono text-[11px] tracking-[0.16em] text-mute-2 uppercase">
